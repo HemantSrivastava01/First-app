@@ -17,16 +17,33 @@ class MyApp extends StatefulWidget {
 class MyAppState extends State<MyApp> {
   final questions = const [
     {
-      'questionText': 'What\'s your favorite color?',
-      'answers': ['Black', 'Red', 'Green', 'Pink'],
+      'questionText': 'The Battle of Plassey was fought in ?',
+      'answers': [
+        {'text': '1757', 'score': 1},
+        {'text': '1782', 'score': 0},
+        {'text': '1748', 'score': 0},
+        {'text': '1764', 'score': 0}
+      ],
     },
     {
-      'questionText': 'What\'s your favorite animal?',
-      'answers': ['Dog', 'Cat', 'Cow', 'Zebra'],
+      'questionText':
+          'Two of the great Mughals wrote their own memories. There were?',
+      'answers': [
+        {'text': 'Babar and Humayun', 'score': 0},
+        {'text': 'Humayun and Jahangir', 'score': 0},
+        {'text': 'Babar and Jahangir', 'score': 10},
+        {'text': 'Jahangir and Shahjahan', 'score': 0}
+      ],
     },
     {
-      'questionText': 'What\'s your favorite outdoor sport?',
-      'answers': ['Cricket', 'Badminton', 'Kabaddi', 'Kushti'],
+      'questionText':
+          'The use of spinning wheel (Charkha) became common during the?',
+      'answers': [
+        {'text': '9th Century AD', 'score': 0},
+        {'text': '10th Century AD', 'score': 0},
+        {'text': '12th Century AD', 'score': 0},
+        {'text': '14th Century AD', 'score': 10}
+      ],
     },
   ];
   var questionIndex = 0;
