@@ -19,7 +19,7 @@ class MyAppState extends State<MyApp> {
     {
       'questionText': 'The Battle of Plassey was fought in ?',
       'answers': [
-        {'text': '1757', 'score': 1},
+        {'text': '1757', 'score': 10},
         {'text': '1782', 'score': 0},
         {'text': '1748', 'score': 0},
         {'text': '1764', 'score': 0}
@@ -48,6 +48,12 @@ class MyAppState extends State<MyApp> {
   ];
   var questionIndex = 0;
   var totalScore = 0;
+  void resetQuiz() {
+    setState(() {
+      questionIndex = 0;
+      totalScore = 0;
+    });
+  }
 
   void answerQuestion(int score) {
     totalScore = totalScore + score;
@@ -67,7 +73,7 @@ class MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('My first App'),
+          title: Text('Quiz-app'),
         ),
         body: questionIndex < questions.length
             ? Quiz(
@@ -75,7 +81,7 @@ class MyAppState extends State<MyApp> {
                 questionIndex: questionIndex,
                 questions: questions,
               )
-            : Result(totalScore),
+            : Result(totalScore, resetQuiz),
       ),
     );
   }
