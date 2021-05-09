@@ -47,16 +47,19 @@ class MyAppState extends State<MyApp> {
     },
   ];
   var questionIndex = 0;
-  void answerQuestion() {
+  var totalScore = 0;
+
+  void answerQuestion(int score) {
+    totalScore = totalScore + score;
+    setState(() {
+      questionIndex = questionIndex + 1;
+    });
+    print(questionIndex);
     if (questionIndex < questions.length) {
       print("we have more questions!");
     } else {
       print("No more questions!");
     }
-    setState(() {
-      questionIndex = questionIndex + 1;
-    });
-    print(questionIndex);
   }
 
   @override
@@ -72,7 +75,7 @@ class MyAppState extends State<MyApp> {
                 questionIndex: questionIndex,
                 questions: questions,
               )
-            : Result(),
+            : Result(totalScore),
       ),
     );
   }
